@@ -3,23 +3,18 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-//A Java Program to illustrate Caesar Cipher Technique
 class xorChipher {
-    // Encrypts text using a shift od s
     public static String encrypt(String text, String key) {
         String encrypHexa = "";
         int keyItr = 0;
         for (int i = 0; i < text.length(); i++) {
-            // XOR Operation
             int temp = text.charAt(i) ^ key.charAt(keyItr);
 
             encrypHexa += String.format("%02x", (byte)temp);
             keyItr++;
             if(keyItr >= key.length()){
-                // once all of key's letters are used, repeat the key
                 keyItr = 0;
             }
-
         }
 
         System.out.println("Encrypted Text: " + encrypHexa);
@@ -46,10 +41,8 @@ class xorChipher {
             decrypText += (char)temp;
             keyItr++;
             if(keyItr >= key.length()){
-                // once all of key's letters are used, repeat the key
                 keyItr = 0;
             }
-
         }
 
         System.out.println("Decrypted Text: " + decrypText);
